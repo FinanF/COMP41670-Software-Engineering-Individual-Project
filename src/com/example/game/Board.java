@@ -48,8 +48,7 @@ public class Board {
             System.out.println(playing ? "White's turn: " + player1.name : "Black's turn: " + player2.name);
 
             System.out.println("Command: ");
-            String command = input.nextLine();
-            input.next();
+            String command = input.next();
             if (command.equals("pip")) {
                 if (playing) {
                     possibleMoves(player1);
@@ -59,6 +58,7 @@ public class Board {
             }
 
             System.out.print("Enter piece letter: ");
+
             int x = input.next().toUpperCase().charAt(0) - 'A';
 
             System.out.print("Enter piece number: ");
@@ -72,14 +72,20 @@ public class Board {
             System.out.print("Enter destination number: ");
             int destY = input.nextInt();
 
+            boolean[] b;
             if (playing) {
-                if (isPlaying(player1, player2, temp, x, y, destX, destY)) {
+                b = isPlaying(player1, player2, temp, x, y, destX, destY);
+                if (b[0]) {
                     playing = false;
                 }
             } else {
-                if (isPlaying(player2, player1, temp, x, y, destX, destY)) {
+                b = isPlaying(player2, player1, temp, x, y, destX, destY);
+                if (b[0]) {
                     playing = true;
                 }
+            }
+            if (!b[1]) {
+                inPlay = false;
             }
         }
     }
@@ -108,12 +114,12 @@ public class Board {
         System.out.println();
     }
 
-    public static boolean isPlaying(Player currentPlayer, Player oppPlayer, Pieces temp, int x, int y, int destX, int destY) throws InterruptedException {
+    public static boolean[] isPlaying(Player currentPlayer, Player oppPlayer, Pieces temp, int x, int y, int destX, int destY) throws InterruptedException {
         if (temp == null || temp.getColour() != currentPlayer.colour) {
             System.out.println("Not your piece!");
             System.out.println();
             Thread.sleep(2000);
-            return false;
+            return new boolean[]{false, true};
         }
 
         if (currentPlayer.makeMove(temp, x, y - 1, destX, destY - 1)) {
@@ -139,7 +145,7 @@ public class Board {
                 // Undo move
                 board[y - 1][x] = temp;
                 board[destY - 1][destX] = null;
-                return false;
+                return new boolean[]{false, true};
             }
 
             // Check opponent's king
@@ -159,16 +165,17 @@ public class Board {
                 System.out.println(oppPlayer.name + " is in CHECK!");
                 if (!hasEscape(oppPlayer)) {
                     System.out.println("CHECKMATE! " + currentPlayer.name + " wins!");
-                    System.exit(0);
+                    return new boolean[]{false, false};
+
                 }
             }
 
-            return true;
+            return new boolean[]{true, true};
         } else {
             System.out.println("Invalid move! Try again.");
             System.out.println();
             Thread.sleep(2000);
-            return false;
+            return new boolean[]{false, true};
         }
     }
 
@@ -242,7 +249,7 @@ public class Board {
                     for (int newR = 0; newR < 8; newR++) {
                         for (int newC = 0; newC < 8; newC++) {
                             if (p.validMove(c, r, newC, newR)) {
-                                System.out.println(((char) ('A' + c)) + "" + (r + 1) + " to " + ((char) ('A' + newC)) + (newR + 1));
+                                System.out.println(p.getSymbol() + " " + ((char) ('A' + c)) + "" + (r + 1) + " to " + ((char) ('A' + newC)) + (newR + 1));
 
                             }
                         }
