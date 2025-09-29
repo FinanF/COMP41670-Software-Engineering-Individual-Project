@@ -10,9 +10,6 @@ public class Pawn extends Pieces {
         firstMove = true;
     }
 
-    public Pawn() {
-    }
-
     @Override
     public String getSymbol() {
         return colour ? "wP" : "bP";

@@ -7,9 +7,6 @@ public class Knight extends Pieces {
         super(colour);
     }
 
-    public Knight() {
-    }
-
     @Override
     public String getSymbol() {
         return colour ? "wk" : "bk";

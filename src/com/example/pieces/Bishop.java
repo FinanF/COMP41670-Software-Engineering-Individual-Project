@@ -7,9 +7,6 @@ public class Bishop extends Pieces {
         super(colour);
     }
 
-    public Bishop() {
-    }
-
     @Override
     public String getSymbol() {
         return colour ? "wB" : "bB";

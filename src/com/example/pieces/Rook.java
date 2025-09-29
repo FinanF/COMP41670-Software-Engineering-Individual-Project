@@ -7,9 +7,6 @@ public class Rook extends Pieces {
         super(colour);
     }
 
-    public Rook() {
-    }
-
     @Override
     public String getSymbol() {
         return colour ? "wR" : "bR";
