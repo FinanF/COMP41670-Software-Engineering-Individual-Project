@@ -3,6 +3,8 @@ package com.example.pieces;
 import com.example.game.Board;
 
 public class Rook extends Pieces {
+    public boolean hasMoved = false; // track rook movement (needed for castling)
+
     public Rook(boolean colour) {
         super(colour);
     }
@@ -14,7 +16,7 @@ public class Rook extends Pieces {
 
     @Override
     public boolean validMove(int x, int y, int newX, int newY) {
-        //Not in same row or column
+        // Not in same row or column
         if (x != newX && y != newY) {
             return false;
         }
@@ -30,7 +32,7 @@ public class Rook extends Pieces {
         int currX = x + stepX;
         int currY = y + stepY;
 
-        //Going to destination
+        // Going to destination
         while (currX != newX || currY != newY) {
             if (Board.getPieceAt(currY, currX) != null) {
                 return false; // path blocked
@@ -39,7 +41,7 @@ public class Rook extends Pieces {
             currY += stepY;
         }
 
-        //Destination square
+        // Destination square
         Pieces dest = Board.getPieceAt(newY, newX);
         if (dest == null) {
             return true; // move to empty

@@ -33,14 +33,23 @@ public class Pawn extends Pieces {
             }
         }
 
-        // Capture
+        // Normal capture
         if (newY == y + direction && (newX == x + 1 || newX == x - 1)) {
             Pieces dest = Board.getPieceAt(newY, newX);
-            return dest != null && dest.getColour() != this.getColour();
+            if (dest != null && dest.getColour() != this.getColour()) {
+                return true;
+            }
+
+            // En passant capture
+            if (Board.lastMove != null && Board.lastMove.piece instanceof Pawn) {
+                // The enemy pawn must have just moved 2 steps and landed next to this pawn
+                return Board.lastMove.toY == y && Math.abs(Board.lastMove.toX - x) == 1 &&
+                        newX == Board.lastMove.toX && newY == y + direction &&
+                        Math.abs(Board.lastMove.toY - Board.lastMove.fromY) == 2;
+            }
         }
 
         // Not valid
         return false;
     }
-
 }
