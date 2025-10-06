@@ -9,10 +9,33 @@ import java.util.Scanner;
 import static com.example.game.fileSystem.loadBoard;
 import static com.example.game.fileSystem.loadPlayers;
 
+/**
+ * The {@code Board} is the main class of this programme,
+ * which constructs the board as a 2D array of the {@code Pieces} class.
+ *
+ * <p>
+ * This class handles the players input,
+ * the current game state, previous moves, and the position of pieces.
+ * </p>
+ *
+ * @author Finan Fagan
+ * @version 1.0
+ * @see com.example.pieces.Pieces
+ * @see com.example.pieces.King
+ * @see com.example.pieces.Pawn
+ * @see com.example.game.Player
+ */
 public class Board {
     public static lastMove lastMove = null;
     public static Pieces[][] board = new Pieces[8][8];
 
+    /**
+     * The main method that runs the chess game and its game state
+     * @param args
+     * @throws InterruptedException
+     * @throws IOException
+     *
+     */
     public static void main(String[] args) throws InterruptedException, IOException {
         Scanner input = new Scanner(System.in);
 
@@ -140,12 +163,20 @@ public class Board {
         input.close();
     }
 
-    // Safe getter
+    /**
+     * Returns the piece at a specific square on the board.
+     * @param row
+     * @param col
+     * @return Pieces
+     */
     public static Pieces getPieceAt(int row, int col) {
         if (row < 0 || row >= 8 || col < 0 || col >= 8) return null;
         return board[row][col];
     }
 
+    /**
+     * Prints the current board state to the terminal.
+     */
     public static void printBoard() {
         for (int i = 0; i < 8; i++) {
             System.out.print((i + 1) + " ");
@@ -166,6 +197,9 @@ public class Board {
         System.out.println();
     }
 
+    /**
+     * Initalises the pieces on the board in the standard chess setup.
+     */
     public static void boardSet() {
         for (int j = 0; j < 8; j++) {
             switch (j) {
@@ -191,6 +225,15 @@ public class Board {
     /**
      * Attempt move for currentPlayer. Returns {moveSucceeded, continueGame}.
      * x,y,destX,destY: x,destX are columns 0..7 (A..H), y,destY are ranks 1..8 (user input).
+     * @param currentPlayer
+     * @param oppPlayer
+     * @param temp
+     * @param x
+     * @param y
+     * @param destX
+     * @param destY
+     * @return
+     * @throws InterruptedException
      */
     public static boolean[] isPlaying(Player currentPlayer, Player oppPlayer,
                                       Pieces temp, int x, int y, int destX, int destY) throws InterruptedException {
@@ -368,11 +411,26 @@ public class Board {
         return new boolean[]{true, true};
     }
 
+    /**
+     * Saves the last move made by a player tothe last move class.
+     * @param piece
+     * @param x
+     * @param y
+     * @param destX
+     * @param destY
+     */
     private static void saveLastMove(Pieces piece, int x, int y, int destX, int destY) {
         lastMove = new lastMove();
         lastMove.put(piece, x, y, destX, destY);
     }
 
+    /**
+     * Checks if the players king is in check.
+     * @param king
+     * @param kingX
+     * @param kingY
+     * @return
+     */
     public static boolean inCheck(Pieces king, int kingX, int kingY) {
         // kingX = col, kingY = row
         for (int r = 0; r < 8; r++) {
@@ -389,6 +447,11 @@ public class Board {
         return false;
     }
 
+    /**
+     * Checks if the king that is in check has an escape, else the game ends.
+     * @param player
+     * @return
+     */
     public static boolean hasEscape(Player player) {
         // Find player's king
         int kingRow = -1, kingCol = -1;
@@ -439,6 +502,10 @@ public class Board {
         return false;
     }
 
+    /**
+     * Prints all the possible move that the player can make.
+     * @param player
+     */
     public static void possibleMoves(Player player) {
         for (int r = 0; r < 8; r++) {
             for (int c = 0; c < 8; c++) {
@@ -456,6 +523,9 @@ public class Board {
         }
     }
 
+    /**
+     * Prints out the last move made in the game.
+     */
     public static void lastMoves() {
         if (lastMove == null) {
             System.out.println("No moves yet.");
@@ -467,6 +537,9 @@ public class Board {
                 " -> " + toFile + (lastMove.toY + 1));
     }
 
+    /**
+     * This is a class that handles the last move made by a player.
+     */
     public static class lastMove {
         public Pieces piece;
         public int fromX, fromY, toX, toY; // fromY/toY stored as board rows (0..7)

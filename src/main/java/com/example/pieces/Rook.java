@@ -3,7 +3,9 @@ package com.example.pieces;
 import com.example.game.Board;
 
 public class Rook extends Pieces {
-    public boolean hasMoved = false; // track rook movement (needed for castling)
+    // track rook movement (needed for castling)
+    public boolean hasMoved = false;
+
 
     public Rook(boolean colour) {
         super(colour);

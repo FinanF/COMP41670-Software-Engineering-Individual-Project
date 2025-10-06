@@ -17,7 +17,6 @@
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
-
     <dependencies>
         <!-- JUnit 5 for testing -->
         <dependency>
