@@ -14,6 +14,7 @@ public class Player {
     public String getColour() {
         return colour ? "White" : "Black";
     }
+
     public boolean makeMove(Pieces piece, int x, int y, int newX, int newY) {
         if (piece == null) {
             return false;

@@ -8,7 +8,7 @@
     <!-- Coordinates: customize these -->
     <groupId>com.example</groupId>
     <artifactId>chess-game</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>Final-Build</version>
 
     <!-- Java version -->
     <properties>

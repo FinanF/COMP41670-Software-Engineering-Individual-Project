@@ -55,7 +55,7 @@ public class fileSystem {
         return switch (symbol) {
             case "wP", "bP" -> new Pawn(colour);
             case "wR", "bR" -> new Rook(colour);
-            case "wN", "bN", "wk", "bk" -> new Knight(colour);
+            case "wk", "bk" -> new Knight(colour);
             case "wB", "bB" -> new Bishop(colour);
             case "wQ", "bQ" -> new Queen(colour);
             case "wK", "bK" -> new King(colour);
