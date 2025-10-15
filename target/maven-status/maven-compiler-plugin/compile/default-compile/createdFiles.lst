@@ -1,0 +1,11 @@
+com\example\game\Board.class
+com\example\pieces\Pieces.class
+com\example\pieces\King.class
+com\example\pieces\Bishop.class
+com\example\game\fileSystem.class
+com\example\game\Player.class
+com\example\pieces\Pawn.class
+com\example\pieces\Knight.class
+com\example\game\Board$lastMove.class
+com\example\pieces\Queen.class
+com\example\pieces\Rook.class
