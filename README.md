@@ -1,5 +1,5 @@
 # COMP41670-Software-Engineering-Individual-Project (Chess)
-Individual project for COMP41670-Software Engineering.
+Individual project for COMP41670-Software Engineering. Terminal based chess.
 ## Deployment
 
 To deploy this project run
