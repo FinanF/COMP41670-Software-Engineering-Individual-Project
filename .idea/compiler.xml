@@ -7,7 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Individual_Project" />
+        <module name="chess-game" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Individual_Project" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
