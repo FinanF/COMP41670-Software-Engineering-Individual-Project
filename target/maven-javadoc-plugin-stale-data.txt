@@ -1,0 +1,46 @@
+-J-Duser.language=
+-J-Duser.country=
+@options
+@packages
+-encoding
+'UTF-8'
+-protected
+-source
+'17'
+-sourcepath
+'C:/Users/fagan/Software_Engineering/Individual_Project/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2025. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/fagan/Software_Engineering/Individual_Project/target/reports/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'chess-game Final-Build API'
+-use
+-version
+-windowtitle
+'chess-game Final-Build API'
+com.example.game
+com.example.pieces
+C:\Users\fagan\Software_Engineering\Individual_Project\src\main\java = 1759494664108
+C:\Users\fagan\Software_Engineering\Individual_Project\target\reports\apidocs\allclasses-index.html = 1760223010907
+C:\Users\fagan\Software_Engineering\Individual_Project\target\reports\apidocs\allpackages-index.html = 1760223010911
+C:\Users\fagan\Software_Engineering\Individual_Project\target\reports\apidocs\element-list = 1760223010750
+C:\Users\fagan\Software_Engineering\Individual_Project\target\reports\apidocs\help-doc.html = 1760223010947
+C:\Users\fagan\Software_Engineering\Individual_Project\target\reports\apidocs\index-all.html = 1760223010941
+C:\Users\fagan\Software_Engineering\Individual_Project\target\reports\apidocs\index.html = 1760223010876
+C:\Users\fagan\Software_Engineering\Individual_Project\target\reports\apidocs\jquery-ui.overrides.css = 1760223010966
+C:\Users\fagan\Software_Engineering\Individual_Project\target\reports\apidocs\member-search-index.js = 1760223010918
+C:\Users\fagan\Software_Engineering\Individual_Project\target\reports\apidocs\module-search-index.js = 1760223010915
+C:\Users\fagan\Software_Engineering\Individual_Project\target\reports\apidocs\overview-summary.html = 1760223010944
+C:\Users\fagan\Software_Engineering\Individual_Project\target\reports\apidocs\overview-tree.html = 1760223010871
+C:\Users\fagan\Software_Engineering\Individual_Project\target\reports\apidocs\package-search-index.js = 1760223010916
+C:\Users\fagan\Software_Engineering\Individual_Project\target\reports\apidocs\script.js = 1760223010951
+C:\Users\fagan\Software_Engineering\Individual_Project\target\reports\apidocs\search.js = 1760223010955
+C:\Users\fagan\Software_Engineering\Individual_Project\target\reports\apidocs\stylesheet.css = 1760223010949
+C:\Users\fagan\Software_Engineering\Individual_Project\target\reports\apidocs\tag-search-index.js = 1760223010919
+C:\Users\fagan\Software_Engineering\Individual_Project\target\reports\apidocs\type-search-index.js = 1760223010917
